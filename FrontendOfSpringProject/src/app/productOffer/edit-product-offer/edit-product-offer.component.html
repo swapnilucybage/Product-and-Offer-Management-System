@@ -1,0 +1,47 @@
+<div class="container mt-5">
+    <h2>Edit Product Offer</h2>
+    <form [formGroup]="editProductOfferForm" (ngSubmit)="updateProductOffer()">
+      <div class="form-group">
+        <label for="productCode">Product Code</label>
+        <select id="productCode" class="form-select" formControlName="productCode">
+          <option value="">Select Product Code</option>
+          <option *ngFor="let code of productCodes" [value]="code">{{ code }}</option>
+        </select>
+        <div *ngIf="productCode?.touched && productCode?.invalid" class="text-danger">
+          <small *ngIf="productCode?.errors?.['required']">Product code is required.</small>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="offerCode">Offer Code</label>
+        <select id="offerCode" class="form-select" formControlName="offerCode">
+          <option value="">Select Offer Code</option>
+          <option *ngFor="let code of offerCodes" [value]="code">{{ code }}</option>
+        </select>
+        <div *ngIf="offerCode?.touched && offerCode?.invalid" class="text-danger">
+          <small *ngIf="offerCode?.errors?.['required']">Offer code is required.</small>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="offerStartDate">Start Date</label>
+        <input type="date" id="offerStartDate" class="form-control" formControlName="offerStartDate" />
+        <div *ngIf="offerStartDate?.touched && offerStartDate?.invalid" class="text-danger">
+          <small *ngIf="offerStartDate?.errors?.['required']">Start date is required.</small>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="offerEndDate">End Date</label>
+        <input type="date" id="offerEndDate" class="form-control" formControlName="offerEndDate" />
+        <div *ngIf="offerEndDate?.touched && offerEndDate?.invalid" class="text-danger">
+          <small *ngIf="offerEndDate?.errors?.['required']">End date is required.</small>
+          <small *ngIf="offerEndDate?.errors?.['dateMismatch']">End date cannot be earlier than start date.</small>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-success mt-4" [disabled]="editProductOfferForm.invalid">Save Changes</button>
+      <button type="button" class="btn btn-secondary mt-4 ms-2" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+  

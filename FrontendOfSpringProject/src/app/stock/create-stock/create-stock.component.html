@@ -1,0 +1,30 @@
+<!-- src/app/create-stock/create-stock.component.html -->
+<div class="container mt-5">
+    <h2>Create Stock</h2>
+    <form (ngSubmit)="onSubmit()" #stockForm="ngForm">
+      <div class="mb-3">
+        <label for="productCode" class="form-label">Product Code</label>
+        <input
+          type="text"
+          class="form-control"
+          id="productCode"
+          required
+          [(ngModel)]="productCode"
+          name="productCode"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="stockCount" class="form-label">Stock Count</label>
+        <input
+          type="number"
+          class="form-control"
+          id="stockCount"
+          required
+          [(ngModel)]="stockCount"
+          name="stockCount"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Save Stock</button>
+    </form>
+  </div>
+  

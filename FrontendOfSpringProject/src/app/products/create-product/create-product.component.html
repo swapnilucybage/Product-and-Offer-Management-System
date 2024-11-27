@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h2>Create New Product</h2>
+  <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Product Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="product.name" name="name" />
+    </div>
+    <div class="mb-3">
+      <label for="code" class="form-label">Code</label>
+      <input type="text" class="form-control" id="code" required [(ngModel)]="product.code" name="code" />
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select class="form-control" id="category" required [(ngModel)]="product.category" name="category">
+        <option value="">Select Category</option>
+        <option value="CONSUMABLE">CONSUMABLE</option>
+        <option value="NON_CONSUMABLE">NON_CONSUMABLE</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="mfgDate" class="form-label">Manufacturing Date</label>
+      <input type="date" class="form-control" id="mfgDate" required [(ngModel)]="product.mfgDate" name="mfgDate" />
+    </div>
+    <div class="mb-3">
+      <label for="expDate" class="form-label">Expiry Date</label>
+      <input type="date" class="form-control" id="expDate" required [(ngModel)]="product.expDate" name="expDate" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Product</button>
+  </form>
+</div>

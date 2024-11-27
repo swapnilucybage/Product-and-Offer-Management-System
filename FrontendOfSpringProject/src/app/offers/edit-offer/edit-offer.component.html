@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <h2>Edit Offer</h2>
+    <form [formGroup]="editOfferForm" (ngSubmit)="updateOffer()">
+      <div class="form-group">
+        <label for="code">Offer Code</label>
+        <input type="text" id="code" class="form-control" formControlName="code" />
+        <div *ngIf="code?.touched && code?.invalid" class="text-danger">
+          <small *ngIf="code?.errors?.['required']">Offer code is required.</small>
+          <small *ngIf="code?.errors?.['minlength']">Minimum 3 characters required.</small>
+          <small *ngIf="code?.errors?.['maxlength']">Maximum 10 characters allowed.</small>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" formControlName="description"></textarea>
+        <div *ngIf="description?.touched && description?.invalid" class="text-danger">
+          <small *ngIf="description?.errors?.['required']">Description is required.</small>
+          <small *ngIf="description?.errors?.['maxlength']">Maximum 200 characters allowed.</small>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="value">Offer Value</label>
+        <select id="value" class="form-control" formControlName="value">
+          <option value="">Select Value</option>
+          <option value="BUY1_GET1">BUY1_GET1</option>
+          <option value="BUY2_GET1">BUY2_GET1</option>
+          <option value="DISCOUNT_PERCENT_10">DISCOUNT_PERCENT_10</option>
+          <option value="DISCOUNT_PERCENT_20">DISCOUNT_PERCENT_20</option>
+        </select>
+        <div *ngIf="value?.touched && value?.invalid" class="text-danger">
+          <small *ngIf="value?.errors?.['required']">Offer value is required.</small>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="activationDate">Activation Date</label>
+        <input type="date" id="activationDate" class="form-control" formControlName="activationDate" />
+        <div *ngIf="activationDate?.touched && activationDate?.invalid" class="text-danger">
+          <small *ngIf="activationDate?.errors?.['required']">Activation date is required.</small>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="expiryDate">Expiry Date</label>
+        <input type="date" id="expiryDate" class="form-control" formControlName="expiryDate" />
+        <div *ngIf="expiryDate?.touched && expiryDate?.invalid" class="text-danger">
+          <small *ngIf="expiryDate?.errors?.['required']">Expiry date is required.</small>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-success mt-4" [disabled]="editOfferForm.invalid">Save Changes</button>
+      <button type="button" class="btn btn-secondary mt-4 ms-2" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+  

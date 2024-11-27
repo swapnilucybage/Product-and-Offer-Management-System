@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="card shadow " style="width: 50%; min-width: 300px;">
+        <div class="card-header bg-black text-white d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">Stock Details</h3>
+            <button class="btn btn-light btn-sm" (click)="goBack()">Back</button>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <h5 class="card-title text-secondary">Stock Information</h5>
+                <hr />
+                <p class="card-text">
+                    <strong>Stock ID:</strong> <span class="text-dark">{{ stockDetails?.id }}</span>
+                </p>
+                <p class="card-text">
+                    <strong>Stock Count:</strong> <span class="text-dark">{{ stockDetails?.stockCount }}</span>
+                </p>
+            </div>
+            <div *ngFor="let product of stockDetails?.products" class="mb-4">
+                <div class="border p-3 rounded">
+                    <h5 class="text-secondary">Associated Product</h5>
+                    <hr />
+                    <p>
+                        <strong>Product ID:</strong> <span class="text-dark">{{ product.id }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

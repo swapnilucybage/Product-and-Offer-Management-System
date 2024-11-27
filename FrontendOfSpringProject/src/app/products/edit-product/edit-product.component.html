@@ -1,0 +1,54 @@
+<div class="container mt-5">
+  <h2>Edit Product</h2>
+  <form [formGroup]="editProductForm" (ngSubmit)="updateProduct()">
+    <div class="form-group">
+      <label for="name">Product Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name" />
+      <div *ngIf="name?.touched && name?.invalid" class="text-danger">
+        <small *ngIf="name?.errors?.['required']">Product name is required.</small>
+        <small *ngIf="name?.errors?.['minlength']">Minimum 3 characters required.</small>
+        <small *ngIf="name?.errors?.['maxlength']">Maximum 10 characters allowed.</small>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="code">Product Code</label>
+      <input type="text" id="code" class="form-control" formControlName="code" />
+      <div *ngIf="code?.touched && code?.invalid" class="text-danger">
+        <small *ngIf="code?.errors?.['required']">Product code is required.</small>
+        <small *ngIf="code?.errors?.['pattern']">Code must be 4-10 characters (uppercase letters/numbers).</small>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="category">Category</label>
+      <select id="category" class="form-control" formControlName="category">
+        <option value="">Select Category</option>
+        <option value="CONSUMABLE">CONSUMABLE</option>
+        <option value="NON_CONSUMABLE">NON_CONSUMABLE</option>
+      </select>
+      <div *ngIf="category?.touched && category?.invalid" class="text-danger">
+        <small *ngIf="category?.errors?.['required']">Category is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="mfgDate">Manufacturing Date</label>
+      <input type="date" id="mfgDate" class="form-control" formControlName="mfgDate" />
+      <div *ngIf="mfgDate?.touched && mfgDate?.invalid" class="text-danger">
+        <small *ngIf="mfgDate?.errors?.['required']">Manufacturing date is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="expDate">Expiry Date</label>
+      <input type="date" id="expDate" class="form-control" formControlName="expDate" />
+      <div *ngIf="expDate?.touched && expDate?.invalid" class="text-danger">
+        <small *ngIf="expDate?.errors?.['required']">Expiry date is required.</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-4" [disabled]="editProductForm.invalid">Save Changes</button>
+    <button type="button" class="btn btn-secondary mt-4 ms-2" (click)="cancel()">Cancel</button>
+  </form>
+</div>

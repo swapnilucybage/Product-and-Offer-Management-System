@@ -1,0 +1,41 @@
+.container {
+    max-width: 800px;
+}
+
+.card-header {
+    font-size: 1.25rem;
+}
+
+.offer-card {
+    border: 1px solid #6c757d;
+}
+
+.offer-card .card-body {
+    padding: 1.5rem;
+}
+
+h4.text-center {
+    margin-top: 2rem;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.text-dark {
+    font-weight: bold;
+}
+
+.text-secondary {
+    font-weight: 500;
+}
+
+.text-muted {
+    font-style: italic;
+}
+
+.text-success {
+    font-weight: bold;
+}
+
+.text-danger {
+    font-weight: bold;
+}

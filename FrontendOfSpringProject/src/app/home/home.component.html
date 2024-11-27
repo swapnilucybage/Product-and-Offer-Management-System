@@ -1,0 +1,65 @@
+<div class="bg-dark text-white text-center py-4 h1">Product and Offer Management System</div>
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product</h5>
+                    <p>
+                        <img src="../../assets/images/products.jpg" class="card-img-top img-fluid mb-3" alt="Product Image" style="width: 200px;">
+                    </p>
+                    <a [routerLink]="['/products']" class="btn bg-dark text-white">Go to Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Offers</h5>
+                    <p>
+                        <img src="../../assets/images/sales.jpg" class="card-img-top img-fluid mb-3" alt="Sales Image" style="width: 200px; height: 135px;">
+                    </p>
+                    <a [routerLink]="['/offer']" class="btn bg-dark text-white">Go to Offers</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Stock</h5>
+                    <p>
+                        <img src="../../assets/images/stocks.jpg" class="card-img-top img-fluid mb-3" alt="Stock Image" style="width: 200px;">
+                    </p>
+                    <a [routerLink]="['/stock']" class="btn bg-dark text-white">Go to Stocks</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product Offers</h5>
+                    <p>
+                        <img src="../../assets/images/productOffer.jpg" class="card-img-top img-fluid mb-3" alt="Product Offer Image" style="width: 200px;">
+                    </p>
+                    <a [routerLink]="['/product-offer']" class="btn bg-dark text-white">Go to Product Offers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <div class="container">
+        <p>&copy; 2024 Product and Offer Management System. All Rights Reserved.</p>
+        <p>Follow us on:
+            <a href="#" class="text-white"> Facebook</a> |
+            <a href="#" class="text-white"> Twitter</a> |
+            <a href="#" class="text-white"> Instagram</a>
+        </p>
+    </div>
+</footer>
+
+<router-outlet></router-outlet>

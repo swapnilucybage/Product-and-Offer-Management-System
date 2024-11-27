@@ -1,0 +1,61 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <button class="btn btn-outline-primary" routerLink="/">
+          <i class="bi bi-house"></i> Home
+        </button>
+      </div>
+      <div>
+      <h2>Product Offer List</h2>
+      </div>
+      <button class="btn btn-success" (click)="createProductOffer()">Add New Product Offer</button>
+    </div>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Offer ID</th>
+          <th>Product Code</th>
+          <th>Offer Code</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let offer of paginatedProductOffers">
+          <td>{{ offer.id || 'N/A' }}</td>
+          <td>{{ offer.productCode }}</td>
+          <td>{{ offer.offerCode }}</td>
+          <td>{{ offer.offerStartDate }}</td>
+          <td>{{ offer.offerEndDate}}</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2" [routerLink]="['/product-offer-details', offer.id]">
+                View Details
+              </button>              
+            <button class="btn btn-warning btn-sm me-2" (click)="editProductOffer(offer.id)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteProductOffer(offer.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination m-4 d-flex justify-content-end">
+      <button
+        class="btn btn-outline-primary me-2"
+        (click)="prevPage()"
+        [disabled]="currentPage === 1"
+      >
+        Previous
+      </button>
+      <span class="m-2">{{ currentPage }} / {{ totalPages() }}</span>
+      <button
+        class="btn btn-outline-primary"
+        (click)="nextPage()"
+        [disabled]="currentPage === totalPages()"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+  
