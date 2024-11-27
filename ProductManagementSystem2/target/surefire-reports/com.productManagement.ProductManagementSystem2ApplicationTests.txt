@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.productManagement.ProductManagementSystem2ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.83 s -- in com.productManagement.ProductManagementSystem2ApplicationTests
